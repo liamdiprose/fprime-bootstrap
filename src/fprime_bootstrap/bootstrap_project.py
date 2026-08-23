@@ -195,7 +195,7 @@ def generate_boilerplate_project(
     """Generates a new project"""
     source = Path(__file__).parent / "templates/fprime-project-template"
     # copy files from template into target path
-    shutil.copytree(source, project_path, dirs_exist_ok=populate)
+    shutil.copytree(source, project_path, dirs_exist_ok=populate, copy_function=shutil.copy)
 
     # Iterate over all template files and replace {{FPRIME_PROJECT_NAME}} placeholder with project_name
     for file in project_path.rglob("*-template"):
